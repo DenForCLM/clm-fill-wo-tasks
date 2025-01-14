@@ -4,7 +4,10 @@ Fill WO Tasks Debrief
 How to Install this script.
 1.You need a browser extension like Tampermonkey that runs custom scripts:
 
-Chrome: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo Firefox: https://addons.mozilla.org/firefox/addon/tampermonkey/ Edge: https://microsoftedge.microsoft.com/addons/detail/tampermonkey/ Safari: https://apps.apple.com/app/tampermonkey/id1482490089
+Chrome: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo 
+Firefox: https://addons.mozilla.org/firefox/addon/tampermonkey/ 
+Edge: https://microsoftedge.microsoft.com/addons/detail/tampermonkey/ 
+Safari: https://apps.apple.com/app/tampermonkey/id1482490089
 
 After installing Tampermonkey, click its icon in the toolbar and choose "Dashboard" (or "Manage scripts").
 
