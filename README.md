@@ -1,2 +1,28 @@
 # clm-fill-wo-tasks
-fill WO Tasks Debrief
+Fill WO Tasks Debrief
+
+How to Install this script.
+1.You need a browser extension like Tampermonkey that runs custom scripts:
+
+Chrome: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo Firefox: https://addons.mozilla.org/firefox/addon/tampermonkey/ Edge: https://microsoftedge.microsoft.com/addons/detail/tampermonkey/ Safari: https://apps.apple.com/app/tampermonkey/id1482490089
+
+After installing Tampermonkey, click its icon in the toolbar and choose "Dashboard" (or "Manage scripts").
+
+Create a New Script Click "+" (plus icon) or "Add new script". Delete the default template, then paste the entire script code into the editor.
+
+Click File → Save, or press Ctrl+S (Windows).
+
+Click on the "Installed Userscripts" and enable this script.
+
+Tampermonkey requires enabling Developer mode to install custom scripts. To do this:
+
+Chrome:
+Open the extensions page (chrome://extensions) in your browser. Enable the "Developer mode" switch in the left side of the page.
+
+Opera
+Open the extensions page (opera://extensions) in your browser. Enable the "Developer mode" switch at the top right.
+
+Microsoft Edge
+Open the extensions page (edge://extensions) in your browser. Enable the "Developer mode" switch in the left side of the page.
+
+That’s all! Your userscript is now installed and will run whenever you visit the specified site(s).
