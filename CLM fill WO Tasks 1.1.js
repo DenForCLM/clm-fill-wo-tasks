@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CLM Fill Debrief Rows
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  Automatically fill data in CLM
 // @author       Denis Kiselev
 // @match        *://elekta--svmxc.vf.force.com/apex/*ELK_WO_Task_Debrief*
@@ -12,7 +12,7 @@
 (function () {
     'use strict';
 
-    const DEBUG = true;
+    const DEBUG = false;
     // CSS classes for columns
     const CLASS_CD = "svmx-grid-cell-gridcolumn-1064"; // Check Description
     const CLASS_MR = "svmx-grid-cell-gridcolumn-1070"; // Manual Reference
@@ -460,6 +460,13 @@
         doc.getElementById('copy-data-button').disabled = matching.length === 0;
     }
 
+    function updateCopyButtonState() {
+        const tbody = doc.querySelector('#matching-table tbody');
+        // If there is at least one row in the table without the “no-matching” class, we consider that there is data available
+        const matchingRowsCount = Array.from(tbody.children).filter(tr => !tr.classList.contains('no-matching')).length;
+        doc.getElementById('copy-data-button').disabled = matchingRowsCount === 0;
+    }
+
     /**
      * Handles file upload, parses and compares data.
      * @param {Event} e - The change event from the file input.
@@ -854,6 +861,7 @@
 
         if (matching.length === 0) {
             const tr = doc.createElement('tr');
+            tr.classList.add('no-matching');
             tr.innerHTML = `<td colspan='5'>${messages.noMatching}</td>`;
             fragment.appendChild(tr);
         } else {
@@ -878,6 +886,7 @@
             matchingTitle.textContent = `Matching Rows: ${matching.length}`;
         }
         updateTableCount('matching-title', matching.length);
+        updateCopyButtonState();
     }
 
     /**
@@ -888,7 +897,8 @@
         const tbody = doc.querySelector('#matching-table tbody');
 
         // If table has a "No matching rows found" message
-        if (tbody.children.length === 1 && tbody.children[0].children[0].colSpan) {
+        if (tbody.children.length === 1 && tbody.children[0].classList.contains('no-matching')){
+            //tbody.children[0].children[0].colSpan) {
             tbody.innerHTML = '';
         }
 
@@ -905,6 +915,7 @@
         // Update count in matching table
         const matchingRows = doc.querySelectorAll('#matching-table tbody tr').length;
         updateTableCount('matching-title', matchingRows);
+        updateCopyButtonState();
     }
 
     comparisonWindow = null;
